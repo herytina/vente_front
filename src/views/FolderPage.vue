@@ -6,6 +6,14 @@
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
         <ion-title>{{ $route.params.id }}</ion-title>
+        <ion-buttons slot="secondary">
+          <ion-button>
+            <ion-icon slot="icon-only" :icon="personCircle"></ion-icon>
+          </ion-button>
+          <ion-button>
+            <ion-icon slot="icon-only" :icon="search"></ion-icon>
+          </ion-button>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>
 
@@ -15,8 +23,11 @@
           <ion-title size="large">{{ $route.params.id }}</ion-title>
         </ion-toolbar>
       </ion-header>
-      <div v-if="$route.params.id === 'Products'">
+      <div v-if="$route.params.id === 'Panier'">
         <ProductList />
+      </div>
+      <div v-if="$route.params.id === 'Products'">
+        <ProductManager />
       </div>
     </ion-content>
   </ion-page>
@@ -24,7 +35,10 @@
 
 <script setup lang="ts">
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-import ProductList from '../component/productList';
+import ProductList from '../component/productList.vue';
+import ProductManager from '../component/productManager.vue';
+import { search, personCircle } from 'ionicons/icons';
+
 </script>
 
 <style scoped>
