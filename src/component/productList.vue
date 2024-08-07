@@ -29,7 +29,7 @@
   </template>
   
   <script lang="ts">
-    import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonFab, IonFabButton, IonFabList } from '@ionic/vue';
+    import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonFab, IonFabButton, IonFabList, IonIcon } from '@ionic/vue';
     import { defineComponent } from 'vue';
     import {
     chevronUpCircle,
@@ -40,7 +40,7 @@
   
     export default defineComponent({
         name: 'ProductList',
-        components: { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,  IonFab, IonFabButton, IonFabList },
+        components: { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,  IonFab, IonFabButton, IonFabList, IonIcon },
         setup() {
             return { chevronUpCircle, colorPalette, document, globe };
         },

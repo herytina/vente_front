@@ -26,7 +26,7 @@
       <div v-if="$route.params.id === 'Panier'">
         <ProductList />
       </div>
-      <div v-if="$route.params.id === 'Products'">
+      <div v-if="$route.params.id === 'Produits'">
         <ProductManager />
       </div>
     </ion-content>
@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonIcon, IonButton } from '@ionic/vue';
 import ProductList from '../component/productList.vue';
 import ProductManager from '../component/productManager.vue';
 import { search, personCircle } from 'ionicons/icons';

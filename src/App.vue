@@ -16,7 +16,7 @@
           </ion-list>
 
           <ion-list id="labels-list">
-            <ion-list-header>Labels</ion-list-header>
+            <ion-list-header>Partenaires</ion-list-header>
 
             <ion-item v-for="(label, index) in labels" lines="none" :key="index">
               <ion-icon aria-hidden="true" slot="start" :ios="bookmarkOutline" :md="bookmarkSharp"></ion-icon>
@@ -62,26 +62,26 @@ const selectedIndex = ref(0);
 const appPages = [
   {
     title: 'Panier',
-    url: '/folder/Panier',
+    url: '/sales/Panier',
     iosIcon: mailOutline,
     mdIcon: mailSharp,
   },
   {
     title: 'Produits',
-    url: '/folder/Products',
+    url: '/sales/Produits',
     iosIcon: paperPlaneOutline,
     mdIcon: paperPlaneSharp,
   },
   {
-    title: 'Favorites',
-    url: '/folder/Favorites',
+    title: 'Clients',
+    url: '/sales/Clients',
     iosIcon: heartOutline,
     mdIcon: heartSharp,
   }
 ];
-const labels = ['Family', 'Friends', 'Reminders'];
+const labels = ['Star', 'Habibo', 'Socolait'];
 
-const path = window.location.pathname.split('folder/')[1];
+const path = window.location.pathname.split('sales/')[1];
 if (path !== undefined) {
   selectedIndex.value = appPages.findIndex((page) => page.title.toLowerCase() === path.toLowerCase());
 }
