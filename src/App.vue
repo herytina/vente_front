@@ -1,11 +1,11 @@
 <template>
   <ion-app>
     <ion-split-pane content-id="main-content">
-      <ion-menu content-id="main-content" type="overlay">
+      <ion-menu content-id="main-content" type="overlay" v-if="user?.id">
         <ion-content>
           <ion-list id="inbox-list">
-            <ion-list-header>Inbox</ion-list-header>
-            <ion-note>hi@ionicframework.com</ion-note>
+            <ion-list-header>{{ user.nom }} {{  user.prenom }}</ion-list-header>
+            <ion-note>{{ user.tel }}</ion-note>
 
             <ion-menu-toggle :auto-hide="false" v-for="(p, i) in appPages" :key="i">
               <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
@@ -46,7 +46,7 @@ import {
   IonRouterOutlet,
   IonSplitPane,
 } from '@ionic/vue';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import {
   bookmarkOutline,
   bookmarkSharp,
@@ -57,7 +57,15 @@ import {
   paperPlaneOutline,
   paperPlaneSharp,
 } from 'ionicons/icons';
+import { useUserStore } from './store/userStore';
+import { Vendeur } from './models/vendeurs';
 
+const userStore = useUserStore();
+const user = ref<Vendeur>()
+
+onMounted(()=>{
+  user.value = userStore.user
+})
 const selectedIndex = ref(0);
 const appPages = [
   {
@@ -75,6 +83,24 @@ const appPages = [
   {
     title: 'Clients',
     url: '/sales/Clients',
+    iosIcon: heartOutline,
+    mdIcon: heartSharp,
+  },
+  {
+    title: 'Vendeur (type admin)',
+    url: '/sales/Vendeurs',
+    iosIcon: heartOutline,
+    mdIcon: heartSharp,
+  },
+  {
+    title: 'Rapports (rec ventes)',
+    url: '/sales/Rapports',
+    iosIcon: heartOutline,
+    mdIcon: heartSharp,
+  },
+  {
+    title: 'Parametre',
+    url: '/sales/Parametre',
     iosIcon: heartOutline,
     mdIcon: heartSharp,
   }

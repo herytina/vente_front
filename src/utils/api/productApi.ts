@@ -1,12 +1,7 @@
 // src/axios.ts
 import { Product } from '@/models/produits';
-import axios from 'axios';
+import api from './api';
 
-// Créez une instance d'Axios avec la configuration de votre API
-const api = axios.create({
-  baseURL: 'http://localhost:3000/api/', // Remplacez par l'URL de votre API
-  timeout: 1000,
-});
 
 const newProduct = async (product : Product) => {
   try{

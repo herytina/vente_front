@@ -4,5 +4,6 @@ export interface Product {
     name: string;
     quantiter : string;
     price: number;
-    stock: number;
+    poids: number;
+    totalQuantiter : number;
 }

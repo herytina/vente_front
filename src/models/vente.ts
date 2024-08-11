@@ -1,7 +1,16 @@
+import { Clients } from "./clients";
+import { Product } from "./produits";
+import { Vendeur } from "./vendeurs";
+
 // src/models/vente.ts
 export interface Vente {
-    id: number;
-    idCli: number;
-    idProdEn: number[];
-    idSociete: number;
+    id?: number;
+    client: Clients;
+    produits: Commande[];
+    vendeur: Vendeur;
+}
+
+export interface Commande{
+    produits: Product,
+    nombre: number
 }

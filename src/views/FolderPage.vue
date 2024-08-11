@@ -24,10 +24,19 @@
         </ion-toolbar>
       </ion-header>
       <div v-if="$route.params.id === 'Panier'">
-        <ProductList />
+        <ProductList/>
       </div>
       <div v-if="$route.params.id === 'Produits'">
-        <ProductManager />
+        <Manager :type="$route.params.id "/>
+      </div>
+      <div v-if="$route.params.id === 'Clients'">
+        <Manager :type="$route.params.id "/>
+      </div>
+      <div v-if="$route.params.id === 'Vendeurs'">
+        <Manager :type="$route.params.id "/>
+      </div>
+      <div v-if="$route.params.id === 'Creér un compte'">
+        <CreateAccount />
       </div>
     </ion-content>
   </ion-page>
@@ -35,8 +44,9 @@
 
 <script setup lang="ts">
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonIcon, IonButton } from '@ionic/vue';
-import ProductList from '../component/productList.vue';
-import ProductManager from '../component/productManager.vue';
+import ProductList from '../component/products/productList.vue';
+import Manager from '../component/manager.vue';
+import CreateAccount from '../component/CreateAccount.vue';
 import { search, personCircle } from 'ionicons/icons';
 
 </script>
